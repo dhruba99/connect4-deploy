@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+
+}
+.container{
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    align-items: center;
+    display: flex;
+    gap: 200px;
+    flex-direction: column;
+    display: flex;
+    height: 100vh;
+}
+.title{
+    font-family: 'Arial', sans-serif;
+    font-size: 36px;
+    font-weight: bold;
+    color: #FFD700; /* Gold color */
+    text-align: center;
+    text-transform: uppercase; /* Uppercase letters */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Shadow effect */
+  
+}
+.user{
+    gap: 20px;
+}
+.play-board{
+    display: flex;
+    /* flex-direction: column; */
+    margin-top: -200px;
+    gap: 200px;
+    justify-content: center;
+    align-items: center;
+}
+
+.reset{
+    width: 150px;
+    height: 50px;
+    border: 2px solid white;
+    outline: none;
+    cursor: pointer;
+    border-radius: 20px;
+    background: #1F3540;
+    font-size: 26px;
+    color: #26ffcb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.reset:disabled{
+    border: none;
+}
+.boxes{
+    display: flex;
+    height: 50px;
+    width: 50px;
+    background: #0275ae;
+    border: 2px solid #0F1B21;
+    border-radius: 12px;
+    cursor: pointer;
+}
+.boxes:active {
+    background-color: rgb(112, 238, 103);
+}
+.board{
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.boxes img{
+    margin: 5px 5px;
+    
+}
+.title img{
+    width: 60px;
+    padding: 20px;
+    
+}
+.bottom{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.winner{
+    background-color: #4CAF50; 
+    color: white; 
+    padding: 20px; 
+    border-radius: 5px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    text-align: center; 
+    font-size: 18px; 
+    font-weight: bold;
+    align-items: flex-end;
+}
+
+.player{
+    margin-top: 20px;
+    font-family: 'Arial', sans-serif;
+    font-size: 24px;
+    color: #FFFFFF; /* White color */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Shadow effect */
+    text-align: center;
+    background-color: #333333; /* Dark gray background */
+    padding: 10px 20px; /* Padding */
+    border-radius: 10px; /* Rounded corners */
+}
+
+@media screen and (max-width:700px){
+    .container{
+        height: 100vw;
+        margin-top: -100px;
+
+    }
+    .play-board{
+        margin-top: 20px;
+        flex-direction: column;
+    }
+    .boxes{
+        height: 25vw;
+        width: 25vw;
+    }
+    .bottom{
+        margin-top: 10vh;
+      }
+    .title{
+        font-size: 15vw;
+        display: flex;
+        flex-direction: column;
+    }
+    .boxes img{
+        margin: 5vw 5vw;
+    }
+    .winner{
+        padding: 10px; /* Reduce padding for smaller screens */
+        font-size: 16px;
+    }
+}
