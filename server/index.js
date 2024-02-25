@@ -20,14 +20,19 @@ const io = new Server(server, {
 
 // SETTING PLAYER ID
 io.on("connection", (socket) => {
-    if (players[0] === '') players[0] = socket.id
+    if (players[0] === ''){
+        socket.broadcast.emit("join","Player 2 has Joined")
+        players[0] = socket.id
+    } 
     else if(players[1]==='') {
         // io.emit("receivePermit", true)
         players[1] = socket.id
+        socket.broadcast.emit("join","Player 2 has Joined")
     }
     else {
         players[0]=socket.id
         players[1]=''
+        socket.broadcast.emit("join","Player 1 has Joined")
         // io.emit("receivePermit",false)
     }
     console.log(socket.id);

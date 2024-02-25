@@ -4,7 +4,7 @@ import redBall from '../ass/redBall.png'
 import purpleBall from '../ass/purpleBall.png';
 import { io } from 'socket.io-client';
 
-const socket = io();
+const socket = io()
 
 
 
@@ -42,7 +42,9 @@ const Connect4 = () => {
     },[]);
 
 
-
+    socket.on('join',(msg)=>{
+        alert(msg);
+    })
     const toggle = (row, col) => {
 
         socket.emit("send_msg", [{ row, col }, 0]);
