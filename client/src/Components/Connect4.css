@@ -1,10 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-*{
+
+* {
     margin: 0;
     padding: 0;
 
 }
-.container{
+
+.container {
     text-align: center;
     font-family: 'Poppins', sans-serif;
     align-items: center;
@@ -14,20 +16,26 @@
     display: flex;
     height: 100vh;
 }
-.title{
+
+.title {
     font-family: 'Arial', sans-serif;
     font-size: 36px;
     font-weight: bold;
-    color: #FFD700; /* Gold color */
+    color: #FFD700;
+    /* Gold color */
     text-align: center;
-    text-transform: uppercase; /* Uppercase letters */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Shadow effect */
-  
+    text-transform: uppercase;
+    /* Uppercase letters */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    /* Shadow effect */
+
 }
-.user{
+
+.user {
     gap: 20px;
 }
-.play-board{
+
+.play-board {
     display: flex;
     /* flex-direction: column; */
     margin-top: -200px;
@@ -35,8 +43,12 @@
     justify-content: center;
     align-items: center;
 }
-
-.reset{
+.player {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.reset {
     width: 150px;
     height: 50px;
     border: 2px solid white;
@@ -50,11 +62,14 @@
     align-items: center;
     justify-content: center;
     margin-bottom: 20px;
+    /* padding: 20px; */
 }
-.reset:disabled{
+
+.reset:disabled {
     border: none;
 }
-.boxes{
+
+.boxes {
     display: flex;
     height: 50px;
     width: 50px;
@@ -63,82 +78,116 @@
     border-radius: 12px;
     cursor: pointer;
 }
+
 .boxes:active {
     background-color: rgb(112, 238, 103);
 }
-.board{
+
+.board {
     height: 500px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.boxes img{
+
+.boxes img {
     margin: 5px 5px;
-    
+
 }
-.title img{
+
+.title img {
     width: 60px;
     padding: 20px;
-    
+
 }
-.bottom{
+
+.bottom {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
 }
-.winner{
-    background-color: #4CAF50; 
-    color: white; 
-    padding: 20px; 
-    border-radius: 5px; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-    text-align: center; 
-    font-size: 18px; 
+
+.winner {
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-size: 18px;
     font-weight: bold;
     align-items: flex-end;
 }
 
-.player{
+.player {
     margin-top: 20px;
     font-family: 'Arial', sans-serif;
     font-size: 24px;
-    color: #FFFFFF; /* White color */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Shadow effect */
+    color: #FFFFFF;
+    /* White color */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    /* Shadow effect */
     text-align: center;
-    background-color: #333333; /* Dark gray background */
-    padding: 10px 20px; /* Padding */
-    border-radius: 10px; /* Rounded corners */
+    background-color: #333333;
+    /* Dark gray background */
+    padding: 10px 20px;
+    /* Padding */
+    border-radius: 10px;
+    /* Rounded corners */
 }
-
-@media screen and (max-width:700px){
+.msg{
+    font-size: 30px;
+    font-style: italic;
+}
+@media screen and (max-width:700px) {
     .container{
-        height: 100vw;
-        margin-top: -100px;
-
+        height: 100vh;
     }
-    .play-board{
+
+    .play-board {
         margin-top: 20px;
         flex-direction: column;
     }
-    .boxes{
+
+    .boxes {
         height: 25vw;
         width: 25vw;
     }
-    .bottom{
+
+    .bottom {
         margin-top: 10vh;
-      }
-    .title{
+    }
+
+    .reset {
+        width: 220px;
+        height: 80px;
+        font-size: 40px;
+    }
+    .winner{
+        height: 20px;
+        font-size: 30px;
+    }
+    .player {
+        width: 500px;
+        height: 80px;
+        font-size: 40px;
+    }
+
+    .title {
         font-size: 15vw;
         display: flex;
         flex-direction: column;
     }
-    .boxes img{
+
+    .boxes img {
         margin: 5vw 5vw;
     }
-    .winner{
-        padding: 10px; /* Reduce padding for smaller screens */
+
+    .winner {
+        padding: 10px;
+        /* Reduce padding for smaller screens */
         font-size: 16px;
     }
 }

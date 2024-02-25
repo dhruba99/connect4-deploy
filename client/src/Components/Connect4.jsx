@@ -25,6 +25,8 @@ const Connect4 = () => {
     const refs = useRef([]);
     const [player, setPlayer] = useState('')
     const [color, setColor] = useState('')
+    const [joinmsg, setJoinmsg] = useState('')
+    const joinRef = useRef()
 
     useEffect(()=>{
         socket.emit("connecion_msg",{});
@@ -43,7 +45,11 @@ const Connect4 = () => {
 
 
     socket.on('join',(msg)=>{
-        alert(msg);
+        setJoinmsg(msg);
+        setTimeout(function() {
+            joinRef.current.style.display="none";
+
+          }, 3000);
     })
     const toggle = (row, col) => {
 
@@ -211,6 +217,8 @@ const Connect4 = () => {
                     <button className="reset" onClick={reset} disabled={!winner}>Reset</button>
                     <div className='winner'>{winner}</div>
                 <div className="player">{player}{' || '}{color}</div>
+            <p className='msg' ref={joinRef}>{joinmsg}</p>
+
                 </div>
             </div>
         </div>
