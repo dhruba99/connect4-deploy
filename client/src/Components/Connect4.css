@@ -22,12 +22,9 @@
     font-size: 36px;
     font-weight: bold;
     color: #FFD700;
-    /* Gold color */
     text-align: center;
     text-transform: uppercase;
-    /* Uppercase letters */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    /* Shadow effect */
 
 }
 
@@ -43,11 +40,13 @@
     justify-content: center;
     align-items: center;
 }
+
 .player {
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 .reset {
     width: 150px;
     height: 50px;
@@ -61,8 +60,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 20px;
-    /* padding: 20px; */
 }
 
 .reset:disabled {
@@ -73,10 +70,41 @@
     display: flex;
     height: 50px;
     width: 50px;
-    background: #0275ae;
+
+    background-image:
+        radial-gradient(circle at 10% 10%, #d8ebff, #3b5998),
+        /* Lighter radial gradient for highlights */
+        radial-gradient(circle at 90% 90%, #d8ebff, #3b5998),
+        /* Lighter radial gradient for highlights */
+        linear-gradient(45deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%, transparent 75%, rgba(255, 255, 255, 0.1) 75%),
+        /* White diagonal lines */
+        linear-gradient(to right, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)),
+        /* White horizontal lines */
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1));
+    /* White vertical lines */
+    background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px, 20px 20px;
+    /* Adjust sizes to control the texture */
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.3),
+        /* Inner shadow for depth */
+        0 0 20px rgba(0, 0, 0, 0.3);
+    /* Outer shadow for depth */
+    animation: pulse 20s ease-in-out infinite alternate;
     border: 2px solid #0F1B21;
     border-radius: 12px;
     cursor: pointer;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: inset 0 0 20px rgba(49, 241, 232, 0.3), 0 0 20px rgba(252, 9, 252, 0.612);
+    }
+
+    50% {
+        box-shadow: inset 0 0 30px #d8ebff, 0 0 30px rgba(255, 190, 106, 0.6);
+    }
+    100% {
+        box-shadow: inset 0 0 20px rgba(49, 241, 232, 0.3), 0 0 20px rgba(245, 28, 245, 0.3);
+    }
 }
 
 .boxes:active {
@@ -84,7 +112,8 @@
 }
 
 .board {
-    height: 500px;
+    /* height: 500px; */
+    padding: 50px 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -106,7 +135,16 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 15px;
+    width: 100%;
+}
 
+.right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
 }
 
 .winner {
@@ -114,11 +152,12 @@
     color: white;
     padding: 20px;
     border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(187, 3, 224, 0.874);
     text-align: center;
     font-size: 18px;
     font-weight: bold;
     align-items: flex-end;
+    /* width: 100%; */
 }
 
 .player {
@@ -137,57 +176,111 @@
     border-radius: 10px;
     /* Rounded corners */
 }
-.msg{
-    font-size: 30px;
-    font-style: italic;
+
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
 }
+
+/* CSS for fade-in transition */
+.fade-in {
+    opacity: 1;
+    transition: opacity 0.5s ease-in;
+}
+
+.player-turn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border: 4px double rgb(1, 175, 255);
+    padding: 10px;
+}
+
+.img-container {
+    display: flex;
+    height: 50px;
+    width: 50px;
+    /* border-radius: 12px; */
+    border-left: 2px solid white;
+    cursor: pointer;
+    padding-left: 10px;
+}
+
+.msg {
+    font-size: 20px;
+    font-style: italic;
+    color: #19d8db;
+}
+
 @media screen and (max-width:700px) {
-    .container{
-        height: 100vh;
+    body {
+        height: 100%;
+        margin: 0;
+        width: 100%;
+        padding: 0;
+    }
+
+    .container {
+        gap: 0px;
+    }
+
+    .img-container {
+        height: 12vw;
+        width: 12vw;
+    }
+
+    .right {
+        /* display: flex; */
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        flex-direction: row;
+        justify-content: space-between;
     }
 
     .play-board {
-        margin-top: 20px;
+        padding: 200px 0 70px 0;
+        /* position: relative; */
         flex-direction: column;
-    }
-
-    .boxes {
-        height: 25vw;
-        width: 25vw;
+        gap: 0;
     }
 
     .bottom {
-        margin-top: 10vh;
+        gap: 10px;
+        /* width: 100%; */
     }
 
-    .reset {
-        width: 220px;
+    .boxes {
+        height: 11vw;
+        width: 11vw;
+    }
+
+    .winner {
         height: 80px;
         font-size: 40px;
     }
-    .winner{
-        height: 20px;
-        font-size: 30px;
-    }
-    .player {
-        width: 500px;
-        height: 80px;
-        font-size: 40px;
+
+    /* .player {
+        width: 150px;
+        height: 100px;
+        font-size: 20px;
+    } */
+
+    .player-turn {
+        font-size: 12px;
+        padding: 5px;
     }
 
     .title {
-        font-size: 15vw;
+        font-size: 10vw;
         display: flex;
         flex-direction: column;
     }
 
-    .boxes img {
-        margin: 5vw 5vw;
-    }
-
     .winner {
         padding: 10px;
-        /* Reduce padding for smaller screens */
         font-size: 16px;
+        height: 20px;
     }
 }
